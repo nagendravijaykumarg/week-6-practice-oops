@@ -1,0 +1,15 @@
+public class Arthandindex{
+  public static void main(String[]args){
+    int[] arr=new int[10];
+    try{
+      arr[11]=15/0;
+      }
+    catch(arthmeticException e){
+      System.out.println(e);
+      
+    }
+    catch(arryindexoutofboundException e){
+      System.out.println(e);
+    }
+  }
+}
