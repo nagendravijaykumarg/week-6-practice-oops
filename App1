@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class App {
+    public static void main(String[] args) {
+        
+        Scanner s=new Scanner(System.in);
+        
+        System.out.println("Enter name");
+        String name=s.next();
+        
+        System.out.println("Enter marks");
+        int marks=s.nextInt();
+        
+        System.out.println("Enter Mobile");
+        long mobile=s.nextLong();
+        
+        System.out.println("Enter college name");
+        String collegeName=s.next();
+        
+        // set student details to Student class
+        Student std=new Student();
+        std.setName(name);
+        std.setMarks(marks);
+        std.setMobile(mobile);
+        std.setCollegeName(collegeName);
+        
+        // display student details on console
+        
+        System.out.println("name: "+std.getName());
+        System.out.println("Mobile: "+std.getMobile());
+        System.out.println("Marks: "+std.getMarks());
+        System.out.println("College name: "+std.getCollegeName());
+        
+        
+        
+        
+        
+        
+    }
+}
+ 
