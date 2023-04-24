@@ -1,0 +1,140 @@
+package week6projects;
+import java.util.*;
+public class Restaurent {
+	private  String dish_name,ingredients;
+	 private double dish_price;
+	 int n;
+	 Scanner s=new Scanner(System.in);
+	 
+	 Dish arr[];
+	
+	 
+	 public void setdetails() {
+		 System.out.println("enter the number of dishes: ");
+		 n=s.nextInt();
+		 arr=new Dish[n];
+		
+		 for(int i=0;i<arr.length;i++) {
+			 Dish details=new Dish();
+			 System.out.println("enter dish name: ");
+			 details.setDish_name(s.next());
+			 System.out.println("enter ingredients: ");
+			 details.setIngredients(s.next());
+			 System.out.println("enter dish price: ");
+			 details.setDish_price(s.nextDouble());
+			 arr[i]=details;
+		 }
+	 }
+	 
+	 
+	  
+	 
+	 public void getdetails() {
+		
+		 for(int i=0;i<arr.length;i++) {
+			 System.out.println("----------------------");
+			 System.out.println("the items "+(i+1)+" details");
+			 
+			 System.out.println("dish name: "+arr[i].getDish_name());
+			 
+			 System.out.println("ingredients are: "+arr[i].getIngredients());
+			 
+			 System.out.println("dish price is: "+arr[i].getDish_price());
+		 }
+		}
+		 
+	 
+	 
+	 
+	
+	
+
+
+	 public void add(){
+	        Dish details = new Dish();
+	        System.out.println("u wanr to add any dish (yes/no): ");
+	        String selection=s.next();
+	        if(selection.equals("yes")) {
+	            System.out.println("Enter dish name :");
+	            details.setDish_name(s.next());
+	            System.out.println("Enter ingridiens :");
+	            details.setIngredients(s.next());
+	            System.out.println("Enter price :");
+	            details.setDish_price(s.nextDouble());
+	            arr= Arrays.copyOf(arr,arr.length+1);
+	            arr[arr.length-1]=details;
+	            n++;
+	            System.out.println("Added successfully");
+	    }
+	 }
+
+
+	 
+	 
+	 
+	 
+
+	 public void removedish(){
+	        System.out.println("Enter dish that you want delete");
+	        String a=s.next();
+	        for(int i=0;i<n;i++){
+	            if(a.equals(arr[i].getDish_name())){
+	                for(int j=i;j<n-1;j++){
+	                    arr[j]=arr[j+1];
+
+	                }
+	                break;
+	            }
+	        }
+	       n--;
+	       System.out.println("Removed Succesfully");
+	    }
+
+ public void display() { 
+		 
+		 for(int i=0;i<arr.length-1;i++) {
+			 if(arr[i]!=null) {
+				 System.out.println("----------------------");
+				 System.out.println("new dish name:"+arr[i].getDish_name());
+				 System.out.println("ingriends are: "+arr[i].getIngredients());
+				 System.out.println("dish price is: "+arr[i].getDish_price());
+			 }
+		 }
+ }
+
+
+
+ 
+ 
+	 
+	 public void getTotalCost() {
+		 
+		 double totalcost=0.0;
+		 for(int i=0;i<arr.length-1;i++) {
+			 if(arr[i]!=null) {
+				 totalcost += arr[i].getDish_price();
+			 }
+		 }
+		 System.out.println("the total cost is: "+totalcost);
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 public static void main(String[] args) {
+		 Restaurent obj=new Restaurent();
+		 obj.setdetails();
+		
+		obj.add();
+		
+		 obj.getdetails();
+		 obj.removedish();
+		 obj.display();
+		 obj.getTotalCost();
+	}
+	 
+	 
+	 
+}
